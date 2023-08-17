@@ -71,6 +71,19 @@ class linkedList
             return 'Please enter a Valid index'
         }
     }
+
+    pop()
+    {
+        let currentNode = this.head;
+        while(currentNode.index != this.length-2)
+        {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = null;
+        this.tail = currentNode;
+        this.length--;
+    }
+
 }
 
 class Node
@@ -90,5 +103,9 @@ linkedlist1.append(3);
 linkedlist1.prepend(30);
 linkedlist1.prepend(40);
 linkedlist1.append(15);
+linkedlist1.append(9);
+linkedlist1.append(2);
+linkedlist1.append(87);
+linkedlist1.prepend(12);
+linkedlist1.prepend(64);
 console.log(linkedlist1);
-console.log(linkedlist1.at(-1));
