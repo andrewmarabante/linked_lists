@@ -10,7 +10,7 @@ class linkedList
 
     append(value)
     {
-        const newNode = new Node(value, null);
+        const newNode = new Node(value, null, this.length);
         if (this.tail.next === null)
         {
             this.tail.next = newNode
@@ -25,8 +25,16 @@ class linkedList
 
     prepend(value)
     {
+        //So, I added an index but doesn't that just defeat the purpose of avoiding an array? ..
         const newNode = new Node(value, this.head);
+        let currentNode = newNode;
         this.head = newNode;
+        newNode.index = 0
+        for(let i=0;i<this.length;i++)
+        {
+            currentNode.next.index++;
+            currentNode = currentNode.next;
+        }
         this.length++;
         if (this.tail === null)
         {
@@ -48,14 +56,30 @@ class linkedList
     {
         return this.tail
     }
+
+    at(index)
+    {
+        let currentNode = this.head;
+        if (index>=0 && index<this.length){
+        while(currentNode.index != index)
+        {
+            currentNode = currentNode.next;
+        }
+        return currentNode
+        }
+        else{
+            return 'Please enter a Valid index'
+        }
+    }
 }
 
 class Node
 {
-    constructor(value = null, next = null)
+    constructor(value = null, next = null, index)
     {
-        this.value = value
-        this.next = next
+        this.value = value;
+        this.next = next;
+        this.index = index;
     }
 }
 const linkedlist1 = new linkedList()
@@ -63,5 +87,8 @@ linkedlist1.prepend(10);
 linkedlist1.prepend(20);
 linkedlist1.append(5);
 linkedlist1.append(3);
+linkedlist1.prepend(30);
+linkedlist1.prepend(40);
+linkedlist1.append(15);
 console.log(linkedlist1);
-console.log(linkedlist1.tail)
+console.log(linkedlist1.at(-1));
