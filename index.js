@@ -1,25 +1,31 @@
 
-function linkedList()
+class linkedList 
 {
-    head = null;
-    next = null;
-    length = 0;
-    return{
-        head,
-        next,
-        length,
-        append(value)
-        {
-            console.log('working')
-        }
+    constructor()
+    {
+        this.head = null;
+        this.length = 0;
+    }   
+
+    prepend(value)
+    {
+        const newNode = new Node(value, this.head);
+        this.head = newNode;
+        this.length++;
     }
+
 }
 
-function node(value = null, next = null )
+class Node
 {
-    return{
-        value, next
+    constructor(value = null, next = null)
+    {
+        this.value = value
+        this.next = next
     }
 }
-const linkedList1 = new linkedList();
-console.log(linkedList1.append());
+const linkedlist1 = new linkedList()
+linkedlist1.prepend(10);
+linkedlist1.prepend(20);
+linkedlist1.prepend();
+console.log(linkedlist1)
