@@ -100,6 +100,35 @@ class linkedList
         }
     }
 
+    find(value)
+    {
+        let currentNode = this.head;
+        while(currentNode.value != value && currentNode.index < this.length-1)
+        {
+            currentNode = currentNode.next;
+        }
+        if(currentNode.value === value)
+        {
+            return currentNode.index;
+        }
+        else{
+            return null;
+        }
+    }
+
+    toString()
+    {
+        let currentNode = this.head;
+        let string = '';
+        while(currentNode.index < this.length-1)
+        {
+            string += '(' + currentNode.value.toString()+ ')' + ' ';
+            currentNode = currentNode.next;
+        }
+        string += '(' + currentNode.value.toString()+ ')' + ' ';
+        return string;
+    }
+
 }
 
 class Node
@@ -125,4 +154,4 @@ linkedlist1.append(87);
 linkedlist1.prepend(12);
 linkedlist1.prepend(64);
 console.log(linkedlist1);
-console.log(linkedlist1.contains(31))
+console.log(linkedlist1.toString())
