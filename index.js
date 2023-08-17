@@ -84,6 +84,22 @@ class linkedList
         this.length--;
     }
 
+    contains(value)
+    {
+        let currentNode = this.head;
+        while(currentNode.value != value && currentNode.index < this.length-1)
+        {
+            currentNode = currentNode.next;
+        }
+        if(currentNode.value === value)
+        {
+            return 'true';
+        }
+        else{
+            return 'false';
+        }
+    }
+
 }
 
 class Node
@@ -109,3 +125,4 @@ linkedlist1.append(87);
 linkedlist1.prepend(12);
 linkedlist1.prepend(64);
 console.log(linkedlist1);
+console.log(linkedlist1.contains(31))
