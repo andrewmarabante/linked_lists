@@ -17,8 +17,6 @@ class linkedList
         }
         this.tail = newNode;
         this.length++;
-        console.log('marker');
-        console.log(this)
         if (this.head === null)
         {
             this.head = newNode;
@@ -36,6 +34,20 @@ class linkedList
         }
     }
 
+    size()
+    {
+        return this.length;
+    }
+
+    head()
+    {
+        return this.head
+    }
+
+    tail()
+    {
+        return this.tail
+    }
 }
 
 class Node
@@ -50,4 +62,6 @@ const linkedlist1 = new linkedList()
 linkedlist1.prepend(10);
 linkedlist1.prepend(20);
 linkedlist1.append(5);
+linkedlist1.append(3);
 console.log(linkedlist1);
+console.log(linkedlist1.tail)
